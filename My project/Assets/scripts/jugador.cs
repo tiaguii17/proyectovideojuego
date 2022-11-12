@@ -7,6 +7,8 @@ public class jugador : MonoBehaviour
     public Camera fpsCam;
     public float horizontalSpeed;
     public float verticalSpeed;
+    float rotX;
+    float rotY;
     public GameObject Proyectil;
     public Transform Ojos;
    
@@ -19,8 +21,13 @@ public class jugador : MonoBehaviour
     void Update()
     {
         Movimiento();
-        Camara();
         Disparar();
+
+        rotX += Input.GetAxis("Mouse X") * horizontalSpeed * Time.deltaTime;
+        rotY += Input.GetAxis("Mouse Y") * verticalSpeed * Time.deltaTime;
+        rotY = Mathf.Clamp(rotY, -90f, 90f);
+        fpsCam.transform.localRotation = Quaternion.Euler(-rotY, 0f, 0f);
+        transform.rotation = Quaternion.Euler(0f, rotX, 0f);
     }
 
     void Movimiento()
@@ -30,14 +37,7 @@ public class jugador : MonoBehaviour
         transform.Translate(new Vector3(movX, 0, movY));
       
     }
-    void Camara()
-    {
-        float camMovX = Input.GetAxis("Mouse X") * horizontalSpeed * Time.deltaTime;
-        float CamMovY = Input.GetAxis("Mouse Y") * verticalSpeed * Time.deltaTime;
-        transform.Rotate(0, camMovX, 0);
-        fpsCam.transform.Rotate(-CamMovY, 0, 0);
-        
-    }
+    
    
     void Disparar()
     {

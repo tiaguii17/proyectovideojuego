@@ -531,8 +531,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 10
   fpsCam: {fileID: 459905138}
-  horizontalSpeed: 600
-  verticalSpeed: 600
+  horizontalSpeed: 700
+  verticalSpeed: 700
   Proyectil: {fileID: 8217303434390341116, guid: d7a58b52bb6b3d241b269bbd97c80c09, type: 3}
   Ojos: {fileID: 1234701777}
 --- !u!136 &1229734765
@@ -572,8 +572,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229734763}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.43, y: 4.412, z: 12.93}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 49.43, y: 2.96, z: 12.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -581,7 +581,7 @@ Transform:
   - {fileID: 1234701777}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1234701776
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,7 +606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1234701776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.866, z: 0.078}
+  m_LocalPosition: {x: 0, y: 0.866, z: 1.015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -957,6 +957,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1229734767}
   vel: 10
+  EnemyLife: 15
+  PrimaryShot: {fileID: 4323252393917500249, guid: d7a58b52bb6b3d241b269bbd97c80c09, type: 3}
 --- !u!1 &1811569170
 GameObject:
   m_ObjectHideFlags: 0

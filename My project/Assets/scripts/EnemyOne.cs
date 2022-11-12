@@ -15,6 +15,7 @@ public class EnemyOne : MonoBehaviour
     {
         Perseguir();
         Look();
+        Dead();
     }
 
     void Perseguir()
@@ -40,6 +41,15 @@ public class EnemyOne : MonoBehaviour
         if(EnemyLife <= 0)
         {
             Destroy(transform.gameObject);
+        }
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.transform.gameObject.tag == "Proyectil")
+        {
+            EnemyLife = EnemyLife - PrimaryShot.damage;
+            
         }
     }
 } 
