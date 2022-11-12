@@ -11,6 +11,7 @@ public class jugador : MonoBehaviour
     float rotY;
     public GameObject Proyectil;
     public Transform Ojos;
+    public float tears = 0;
    
     void Start()
     {
@@ -41,9 +42,21 @@ public class jugador : MonoBehaviour
    
     void Disparar()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (tears <= 0)
         {
-            Instantiate(Proyectil, Ojos.position, transform.rotation);
+            if (Input.GetMouseButtonDown(0))
+            {
+                Instantiate(Proyectil, Ojos.position, transform.rotation);
+                tears = 1f;
+            }
+
+
         }
+        if(tears > 0)
+        {
+            tears -= Time.deltaTime;
+        }
+        
+        
     }
 }

@@ -6,7 +6,7 @@ public class EnemyOne : MonoBehaviour
     public Transform target;
     public float vel;
     public float EnemyLife = 15;
-
+    public Animator anim;
     [SerializeField]
     private PrimaryShot PrimaryShot;
 
@@ -24,6 +24,7 @@ public class EnemyOne : MonoBehaviour
         if (dist < 25)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, vel * Time.deltaTime);
+            anim.SetBool("Chase",true);
         }
     }
 
