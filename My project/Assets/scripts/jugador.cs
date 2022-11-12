@@ -4,9 +4,10 @@ using UnityEngine;
 public class jugador : MonoBehaviour
 {
     public int velocidad = 2;
-
-    public bool yaPasaste = false;
-
+    public Camera fpsCam;
+    public float horizontalSpeed;
+    public float verticalSpeed;
+   
     void Start()
     {
         
@@ -16,7 +17,7 @@ public class jugador : MonoBehaviour
     void Update()
     {
         Movimiento();
-        
+        Camara();
     }
 
     void Movimiento()
@@ -24,31 +25,16 @@ public class jugador : MonoBehaviour
         float movX = Input.GetAxis("Horizontal") * velocidad * Time.deltaTime;
         float movY = Input.GetAxis("Vertical") * velocidad * Time.deltaTime;
         transform.Translate(new Vector3(movX, 0, movY));
-        
-        if(Input.GetKey(KeyCode.Q)){
-            transform.Rotate(0, -1.5f, 0);
-        }
-        if(Input.GetKey(KeyCode.E)){
-            transform.Rotate(0, 1.5f, 0);
-        }
+      
     }
-
-    void OnTriggerExit(Collider col)
+    void Camara()
     {
-        if (col.transform.gameObject.name == "portal")
-        {
-            if (yaPasaste == true)
-            {
-                transform.localScale += new Vector3(0.20f, 0.20f, 0.20f);
-                yaPasaste = false;
-            }
-            else
-            {
-                transform.localScale += new Vector3(-0.20f, -0.20f, -0.20f);
-                yaPasaste = true;
-
-            }
-        }
+        float camMovX = Input.GetAxis("Mouse X") * horizontalSpeed * Time.deltaTime;
+        float CamMovY = Input.GetAxis("Mouse Y") * verticalSpeed * Time.deltaTime;
+        transform.Rotate(0, camMovX, 0);
+        fpsCam.transform.Rotate(-CamMovY, 0, 0);
+        
     }
+   
 
 }
