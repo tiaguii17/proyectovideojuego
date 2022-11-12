@@ -7,6 +7,8 @@ public class jugador : MonoBehaviour
     public Camera fpsCam;
     public float horizontalSpeed;
     public float verticalSpeed;
+    public GameObject Proyectil;
+    public Transform Ojos;
    
     void Start()
     {
@@ -18,6 +20,7 @@ public class jugador : MonoBehaviour
     {
         Movimiento();
         Camara();
+        Disparar();
     }
 
     void Movimiento()
@@ -36,5 +39,11 @@ public class jugador : MonoBehaviour
         
     }
    
-
+    void Disparar()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(Proyectil, Ojos.position, transform.rotation);
+        }
+    }
 }
