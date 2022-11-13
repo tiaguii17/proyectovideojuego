@@ -12,7 +12,9 @@ public class jugador : MonoBehaviour
     public GameObject Proyectil;
     public Transform Ojos;
     public float tears = 0;
-   
+    public float damage = 3.50f;
+    [SerializeField]
+    private ObjDmg objDmg;
     void Start()
     {
         
@@ -58,5 +60,12 @@ public class jugador : MonoBehaviour
         }
         
         
+    }
+    void OnTriggerEnter(Collider col)
+    {
+        if(col.transform.gameObject.name == "ObjetoDeDaño")
+        {
+            damage = damage + objDmg.damage;
+        }
     }
 }

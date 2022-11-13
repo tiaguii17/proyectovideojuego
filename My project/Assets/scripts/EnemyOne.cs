@@ -8,7 +8,7 @@ public class EnemyOne : MonoBehaviour
     public float EnemyLife = 15;
     public Animator anim;
     [SerializeField]
-    private PrimaryShot PrimaryShot;
+    private jugador jugador;
 
 
     void Update()
@@ -49,7 +49,7 @@ public class EnemyOne : MonoBehaviour
     {
         if (col.transform.gameObject.tag == "Proyectil")
         {
-            EnemyLife = EnemyLife - PrimaryShot.damage;
+            EnemyLife = EnemyLife - jugador.damage;
             
         }
     }
