@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 01ae91b69e82f2f4a8a63e96a3dafe84
+  - enabled: 1
+    path: Assets/Scenes/the binding of isaac 3D.unity
+    guid: f5ca897ad73e3774fa098e65718200df
   m_configObjects: {}
