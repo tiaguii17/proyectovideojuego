@@ -1,8 +1,9 @@
-
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class jugador : MonoBehaviour
 {
+    public static int life = 4;
     public int velocidad = 2;
     public Camera fpsCam;
     public float horizontalSpeed;
@@ -12,7 +13,7 @@ public class jugador : MonoBehaviour
     public GameObject Proyectil;
     public Transform Ojos;
     public float tears = 0;
-    public float damage = 3.50f;
+    public static float damage = 3.50f;
     [SerializeField]
     private ObjDmg objDmg;
     void Start()
@@ -25,6 +26,7 @@ public class jugador : MonoBehaviour
     {
         Movimiento();
         Disparar();
+        Died();
 
         rotX += Input.GetAxis("Mouse X") * horizontalSpeed * Time.deltaTime;
         rotY += Input.GetAxis("Mouse Y") * verticalSpeed * Time.deltaTime;
@@ -66,6 +68,22 @@ public class jugador : MonoBehaviour
         if(col.transform.gameObject.name == "ObjetoDeDaño")
         {
             damage = damage + objDmg.damage;
+        }
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if(col.transform.gameObject.tag == "Enemy")
+        {
+            life--;
+        }
+    }
+    void Died()
+    {
+        if(life == 0)
+        {
+            SceneManager.LoadScene(0);
+            life = 4;
         }
     }
 }
