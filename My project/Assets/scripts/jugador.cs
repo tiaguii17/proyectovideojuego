@@ -50,7 +50,7 @@ public class jugador : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Instantiate(Proyectil, Ojos.position, transform.rotation);
+                Instantiate(Proyectil, Ojos.position, Ojos.rotation);
                 tears = 1f;
             }
 

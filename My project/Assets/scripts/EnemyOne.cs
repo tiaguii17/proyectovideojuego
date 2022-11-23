@@ -10,7 +10,7 @@ public class EnemyOne : MonoBehaviour
     [SerializeField]
     private jugador jugador;
     public float contador = 0;
-    public bool IsDead = false;
+    protected bool IsDead = false;
     void Update()
     {
         Perseguir();
