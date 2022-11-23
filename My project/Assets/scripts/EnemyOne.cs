@@ -9,8 +9,8 @@ public class EnemyOne : MonoBehaviour
     public Animator anim;
     [SerializeField]
     private jugador jugador;
-
-
+    public float contador = 0;
+    public bool IsDead = false;
     void Update()
     {
         Perseguir();
@@ -18,7 +18,7 @@ public class EnemyOne : MonoBehaviour
         Dead();
     }
 
-    void Perseguir()
+    public void Perseguir()
     {
         float dist = Vector3.Distance(target.position, transform.position);
         if (dist < 25)
@@ -26,9 +26,14 @@ public class EnemyOne : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, target.position, vel * Time.deltaTime);
             anim.SetBool("Chase",true);
         }
+        
+        if(IsDead == true)
+        {
+            vel = 0;
+        }
     }
 
-    void Look()
+    public void Look()
     {
         float dist = Vector3.Distance(target.position, transform.position);
         if (dist < 25)
@@ -37,11 +42,18 @@ public class EnemyOne : MonoBehaviour
         }
     }
 
-    void Dead()
+    public void Dead()
     {
         if(EnemyLife <= 0)
         {
-            Destroy(transform.gameObject);
+            IsDead = true;
+            anim.SetBool("die", true);
+            contador += Time.deltaTime;
+            if(contador >= 2)
+            {
+                Destroy(transform.gameObject);
+            }
+            
         }
     }
 
