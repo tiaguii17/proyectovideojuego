@@ -9,8 +9,8 @@ public class EnemyOne : MonoBehaviour
     public Animator anim;
     [SerializeField]
     private jugador jugador;
-    public float contador = 0;
-    protected bool IsDead = false;
+    protected float contador = 0;
+    public bool IsDead = false;
     void Update()
     {
         Perseguir();
@@ -49,7 +49,7 @@ public class EnemyOne : MonoBehaviour
             IsDead = true;
             anim.SetBool("die", true);
             contador += Time.deltaTime;
-            if(contador >= 2)
+            if(contador >= 4)
             {
                 Destroy(transform.gameObject);
             }

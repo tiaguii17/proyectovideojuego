@@ -8,6 +8,9 @@ public class EnemySht : MonoBehaviour
     public Transform spawnPoint;
     public Transform playerpos;
     public float contador = 0;
+    public Animator anim;
+    
+
     void Update()
     {
         ShootPlayer();
@@ -20,12 +23,18 @@ public class EnemySht : MonoBehaviour
         if (dist < 25)
         {
          contador += Time.deltaTime;
+         
             if (contador >= 2)
             {
-                Instantiate(enemyBullet, spawnPoint.position, transform.rotation);
-               
+                anim.SetBool("attack", true);
+                Instantiate(enemyBullet, spawnPoint.position, transform.rotation) ;
                contador = 0;
+                
+            }else if(contador >= 0)
+            {
+                anim.SetBool("attack", false);
             }
+            
         }
     }
 }

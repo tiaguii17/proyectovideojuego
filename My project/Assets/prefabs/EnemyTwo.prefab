@@ -1311,7 +1311,6 @@ MonoBehaviour:
   EnemyLife: 15
   anim: {fileID: 1397157701071581743}
   jugador: {fileID: 0}
-  contador: 0
 --- !u!114 &6616482445924874709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1328,6 +1327,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 1394113254884524707}
   playerpos: {fileID: 0}
   contador: 0
+  anim: {fileID: 0}
+  vel: 0
 --- !u!1 &1397157701062214127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,7 +1733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784043131685908714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.44, z: 1.139}
+  m_LocalPosition: {x: 0, y: 1.44, z: 1.523}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
