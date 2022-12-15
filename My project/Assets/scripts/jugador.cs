@@ -4,7 +4,7 @@ using UnityEngine;
 public class jugador : MonoBehaviour
 {
     public static int life = 4;
-    public int velocidad = 2;
+    public static int velocidad = 10;
     public Camera fpsCam;
     public float horizontalSpeed;
     public float verticalSpeed;
@@ -16,11 +16,6 @@ public class jugador : MonoBehaviour
     public static float damage = 3.50f;
     [SerializeField]
     private ObjDmg objDmg;
-    void Start()
-    {
-        
-    }
-
     
     void Update()
     {
@@ -51,7 +46,7 @@ public class jugador : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Instantiate(Proyectil, Ojos.position, Ojos.rotation);
-                tears = 1f;
+                tears = 1;
             }
 
 
@@ -68,6 +63,11 @@ public class jugador : MonoBehaviour
         if(col.transform.gameObject.name == "ObjetoDeDaño")
         {
             damage = damage + objDmg.damage;
+        }
+        if (col.transform.gameObject.name == "ObjetoPotenciador")
+        {
+            damage = damage + 5f; ;
+            velocidad = 15;
         }
     }
 
@@ -86,4 +86,6 @@ public class jugador : MonoBehaviour
             life = 4;
         }
     }
+
+  
 }

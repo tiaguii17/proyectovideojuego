@@ -16,7 +16,7 @@ public class EnemyTwo : EnemyOne
         if (col.transform.gameObject.tag == "Proyectil")
         {
             EnemyLife = EnemyLife - jugador.damage;
-
+            
         }
     }
 }

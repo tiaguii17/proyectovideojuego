@@ -5,6 +5,7 @@ public class HUD : MonoBehaviour
 {
     public TMP_Text textoDmg;
     public TMP_Text textotears;
+    public TMP_Text textovel;
     public Image heart1;
     public Image heart2;
     public Image heart3;
@@ -13,6 +14,7 @@ public class HUD : MonoBehaviour
     {
         textoDmg.text = "Damage: " + jugador.damage.ToString();
         textotears.text = "Tears: 1 x second";
+        textovel.text = "Velocidad:" + jugador.velocidad.ToString();
         Hurt();
     }
 

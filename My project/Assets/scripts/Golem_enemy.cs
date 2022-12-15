@@ -66,7 +66,7 @@ public class Golem_enemy : MonoBehaviour
         if (col.transform.gameObject.tag == "Proyectil")
         {
             EnemyLife = EnemyLife - jugador.damage;
-
+           
         }
     }
 
