@@ -16,7 +16,7 @@ public class jugador : MonoBehaviour
     public static float damage = 3.50f;
     [SerializeField]
     private ObjDmg objDmg;
-    
+   
     void Update()
     {
         Movimiento();
@@ -47,6 +47,7 @@ public class jugador : MonoBehaviour
             {
                 Instantiate(Proyectil, Ojos.position, Ojos.rotation);
                 tears = 1;
+                
             }
 
 
